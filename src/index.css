@@ -1,0 +1,100 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 230 24% 14%;
+    --foreground: 0 0% 95%;
+
+    --card: 230 26% 16%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 230 26% 16%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 262 83% 82%;
+    --primary-foreground: 230 24% 14%;
+
+    --secondary: 255 69% 75%;
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 230 16% 22%;
+    --muted-foreground: 215 14% 65%;
+
+    --accent: 250 87% 66%;
+    --accent-foreground: 0 0% 95%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 230 16% 25%;
+    --input: 230 16% 25%;
+    --ring: 262 83% 82%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-softsell-darkPurple text-foreground antialiased;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+  }
+  
+  html {
+    @apply scroll-smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+  }
+}
+
+@layer components {
+  .container-tight {
+    @apply w-full max-w-6xl mx-auto px-4 sm:px-8;
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-softsell-purple to-softsell-lightPurple bg-clip-text text-transparent;
+  }
+
+  .gradient-border {
+    @apply relative after:absolute after:inset-0 after:p-[1px] after:rounded-lg after:bg-gradient-to-r after:from-softsell-purple after:to-softsell-purpleGlow after:mask-border;
+  }
+
+  .hover-up {
+    @apply transition-all duration-300 ease-in-out hover:-translate-y-1;
+  }
+
+  .card-shadow {
+    @apply shadow-[0_8px_16px_rgba(0,0,0,0.1)] hover:shadow-[0_16px_24px_rgba(0,0,0,0.15)] transition-all duration-300;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer utilities {
+  .mask-border {
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+  }
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100vw;
+  padding: 0;
+  margin: 0;
+}
